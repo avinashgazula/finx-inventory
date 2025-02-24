@@ -1,4 +1,4 @@
-Inventory: Deployed at https://finx-inventory.vercel.app/
+Inventory: Deployed at https://leafy-alfajores-78e449.netlify.app/
 
 # Auth Information - for testing purposes
 
