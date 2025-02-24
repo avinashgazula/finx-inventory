@@ -24,7 +24,9 @@ export async function getVehiclesAction(filters?: unknown): Promise<{
             headers: {
                 "Content-Type": "application/json",
             },
-            cache: 'no-store',
+            next: {
+                revalidate: 0
+            }
         });
 
         if (!res.ok) {
@@ -32,6 +34,8 @@ export async function getVehiclesAction(filters?: unknown): Promise<{
         }
 
         const data = await res.json();
+        console.log(`vehicles ${JSON.stringify(data)}`);
+
         return { success: true, data };
 
     } catch (error) {
