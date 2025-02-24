@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "../(auth)/utils/auth";
@@ -14,6 +15,7 @@ export const dynamic = "force-dynamic";
 
 const Sales = async () => {
   await cookies();
+  revalidatePath("/sales");
   const user = await getCurrentUser();
 
   if (user && user.role === "sales-rep") {

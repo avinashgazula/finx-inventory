@@ -13,7 +13,9 @@ export async function getSalesAction(): Promise<{
 
         const res = await fetch(url, {
             method: "GET",
-            cache: 'no-store'
+            next: {
+                revalidate: 0
+            }
         });
 
         if (!res.ok) {
