@@ -1,0 +1,35 @@
+Looks like its important to handle server errors
+
+Better to use server side rendering - good chance to use new react 19 features, server actions?? server components?? --- Used Nextjs for SSR . Server actions are good 👍
+
+could use shadcn components to build quicker ---- Used shadcn/radix for comnponents. Very cool component distribution system
+
+might be good to cache images if apis fail consistently ---- Cached the main pages and prefetched the important stuff, Also optimized images
+
+!!! REVIEW NEXT DOCS TO SEE WHATS NEW FROM LAST TIME USED
+
+final list of features:
+After looking more into the apis, it seems more like an app a dealer would use to manage their inventory so kept some ideas but had to scrap the two view ideas
+1. Inventory - card/table view to view list of vehicles, added filtering and pagination. 
+2. Add vehicle form - re used this for edit as well by just passing the vehicle info to the same one
+3. Sales - a table view to track list of sales, added button to delet sales
+4. Users - Track list of users, added button to update roles
+5. Admin - page to update admin stuff.
+
+added role based access to app
+1. sales-rep has access to inventory
+2. manager has access to inventory and sales
+3. principal has accesss to inventory, sales and admin
+4. admin has access to everything
+
+added fallbackpages for most components and gracefully handled errors.
+
+estimates:
+about 2-3 hours to build screens? a little more for optimizing stuff?
+---- was too optimistic with this, next changed a lot, lots of good stuff 👍
+
+total time taken: 5hr 40min
+
+Using shadcn components was good, and i love the idea because I was able to customise the table by passing in filters to it so i could easily make it reusable
+caching is good for this usecase but very annoying to deal with, caching is next is inconsisent to deal with, for ex: if i confirm a sale on a vehicle, i am revalidating cache for /inventory because the card should be updated but since the VehicleCard component is a client component, it wont update as it only reloading the server components, took me a bit to deal with this by passing a callback function from this component to the server action.
+

@@ -1,0 +1,20 @@
+Looks like its important to handle server errors
+
+Better to use server side rendering - good chance to use new react 19 features, server actions?? server components??
+
+could use shadcn components to build quicker
+
+might be good to cache images if apis fail consistently
+
+!!! REVIEW NEXT DOCS TO SEE WHATS NEW FROM LAST TIME USED
+
+features:
+1. vehicles - grid of vehicles, with a button to buy vehicles
+2. views - might have two views for buyers and sellers. buyer can view all vehicles and seller can confirm perhaps
+3 auth - might have to add login to know what screen to show
+4. sales - on seller view to track vehicles pending sales
+5. page to set fail mode
+
+estimates:
+about 2-3 hours to build screens? 1 more hour for optimizing stuff?
+
