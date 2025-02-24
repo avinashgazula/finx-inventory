@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { layoutTester } from "@/lib/layout-tester";
+import { unstable_noStore } from "next/cache";
 import { cookies } from "next/headers";
 import AllVehiclesCard from "./(vehicles)/(card-view)/AllVehiclesCard";
 import AllVehiclesTable from "./(vehicles)/(table-view)/AllVehiclesTable";
@@ -20,7 +21,7 @@ export default async function Inventory(props: {
 }) {
   await layoutTester(await props.searchParams);
   await cookies();
-
+  unstable_noStore();
   return (
     <Card className="mx-4">
       <Tabs defaultValue="card">
