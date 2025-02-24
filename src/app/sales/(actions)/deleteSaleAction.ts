@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 export async function deleteSalesAction(id: number): Promise<{
     success: boolean,
@@ -16,7 +16,8 @@ export async function deleteSalesAction(id: number): Promise<{
         if (!res.ok) {
             return { success: false, error: `Failed to delete sale ${res.status} ${res.statusText}` };
         }
-        revalidatePath("/sales")
+        revalidateTag("sales")
+        revalidateTag("vehicles")
         return { success: true };
 
     } catch (error) {

@@ -6,6 +6,8 @@ import { DataTable } from "../../../../components/ui/table/data-table";
 import { Vehicle } from "../models/Vehicle";
 import { columns } from "./columns";
 
+export const revalidate = 60;
+
 export default async function AllVehiclesTable() {
   const filterColumns = ["make", "model", "year"];
   let vehicles: Vehicle[] = [];

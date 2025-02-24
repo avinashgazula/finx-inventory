@@ -1,6 +1,6 @@
 "use server";
 import { getCurrentUser } from '@/app/(auth)/utils/auth';
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -24,7 +24,6 @@ export async function makeSaleAction(
         url.searchParams.append("vehicle", vehicle_id.toString())
         url.searchParams.append("selling_price", selling_price.toString())
         url.searchParams.append("date", date)
-        console.log("params", url.searchParams);
 
         const res = await fetch(url, {
             method: "POST"
@@ -33,9 +32,8 @@ export async function makeSaleAction(
         if (!res.ok) {
             return { success: false, error: `Error confirming sale ${res.statusText}` };
         }
-        revalidateTag("MAKE_SALE");
-        revalidatePath("/sales");
-        revalidatePath("/inventory");
+        revalidateTag("vehicles");
+        revalidateTag("sales");
         return { success: true };
     } catch (error) {
         console.error("Failed to confirm sale:", error);

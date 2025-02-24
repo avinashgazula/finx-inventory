@@ -13,9 +13,9 @@ export async function getSalesAction(): Promise<{
 
         const res = await fetch(url, {
             method: "GET",
-            cache: 'force-cache',
             next: {
-                revalidate: 60
+                revalidate: 60,
+                tags: ["sales"]
             }
         });
 

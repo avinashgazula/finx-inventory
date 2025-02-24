@@ -24,10 +24,9 @@ export async function getVehiclesAction(filters?: unknown): Promise<{
             headers: {
                 "Content-Type": "application/json",
             },
-            cache: 'force-cache',
             next: {
                 revalidate: 60,
-                tags: ["MAKE_SALE"]
+                tags: ["vehicles"]
             }
         });
 

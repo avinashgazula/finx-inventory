@@ -11,6 +11,8 @@ import { Suspense } from "react";
 import { getCurrentUser } from "../(auth)/utils/auth";
 import UsersTable from "./(table)/UsersTable";
 
+export const revalidate = 60;
+
 const Users = async () => {
   const user = await getCurrentUser();
 
