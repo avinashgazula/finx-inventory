@@ -13,10 +13,7 @@ export async function getSalesAction(): Promise<{
 
         const res = await fetch(url, {
             method: "GET",
-            next: {
-                revalidate: 60,
-                tags: ["sales"]
-            }
+            cache: 'no-store'
         });
 
         if (!res.ok) {

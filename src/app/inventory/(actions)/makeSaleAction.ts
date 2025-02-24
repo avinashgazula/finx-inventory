@@ -1,6 +1,6 @@
 "use server";
 import { getCurrentUser } from '@/app/(auth)/utils/auth';
-import { revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { toast } from 'sonner';
 
@@ -32,8 +32,8 @@ export async function makeSaleAction(
         if (!res.ok) {
             return { success: false, error: `Error confirming sale ${res.statusText}` };
         }
-        revalidateTag("vehicles");
-        revalidateTag("sales");
+        revalidatePath("/inventory");
+        revalidatePath("/sales");
         return { success: true };
     } catch (error) {
         console.error("Failed to confirm sale:", error);
