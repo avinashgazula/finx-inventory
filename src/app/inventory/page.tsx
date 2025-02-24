@@ -12,6 +12,7 @@ import AllVehiclesTable from "./(vehicles)/(table-view)/AllVehiclesTable";
 import AddVehicleButton from "./(vehicles)/AddVehicleButton";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function Inventory(props: {
   searchParams: Promise<Record<string, string>>;

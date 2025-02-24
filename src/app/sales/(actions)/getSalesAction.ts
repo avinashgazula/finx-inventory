@@ -21,6 +21,8 @@ export async function getSalesAction(): Promise<{
         }
 
         const data = await res.json();
+        console.log(`sales ${JSON.stringify(data)}`);
+
         return { success: true, data };
 
     } catch (error) {
