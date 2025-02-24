@@ -1,6 +1,7 @@
 import ServiceUnavailable from "@/components/ServiceUnavailable";
 import { DataTable } from "@/components/ui/table/data-table";
 import DataTableFallback from "@/components/ui/table/fallback/data-table-fallback";
+import { cookies } from "next/headers";
 import { Suspense } from "react";
 import { toast } from "sonner";
 import { getSalesAction } from "./(actions)/getSalesAction";
@@ -10,6 +11,7 @@ import { saleColumns } from "./sale-columns";
 export const revalidate = 0;
 
 const SalesTable = async () => {
+  await cookies();
   let sales: Sale[] = [];
   const filterColumns = ["user", "date"];
 

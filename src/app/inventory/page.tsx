@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { layoutTester } from "@/lib/layout-tester";
+import { cookies } from "next/headers";
 import AllVehiclesCard from "./(vehicles)/(card-view)/AllVehiclesCard";
 import AllVehiclesTable from "./(vehicles)/(table-view)/AllVehiclesTable";
 import AddVehicleButton from "./(vehicles)/AddVehicleButton";
@@ -18,6 +19,7 @@ export default async function Inventory(props: {
   searchParams: Promise<Record<string, string>>;
 }) {
   await layoutTester(await props.searchParams);
+  await cookies();
 
   return (
     <Card className="mx-4">

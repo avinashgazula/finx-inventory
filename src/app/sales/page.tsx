@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "../(auth)/utils/auth";
 import SalesTable from "./SalesTable";
@@ -12,6 +13,7 @@ import SalesTable from "./SalesTable";
 export const dynamic = "force-dynamic";
 
 const Sales = async () => {
+  await cookies();
   const user = await getCurrentUser();
 
   if (user && user.role === "sales-rep") {
