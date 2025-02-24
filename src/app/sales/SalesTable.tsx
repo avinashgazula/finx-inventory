@@ -6,6 +6,9 @@ import { toast } from "sonner";
 import { getSalesAction } from "./(actions)/getSalesAction";
 import { Sale } from "./models/Sale";
 import { saleColumns } from "./sale-columns";
+
+export const revalidate = 0;
+
 const SalesTable = async () => {
   let sales: Sale[] = [];
   const filterColumns = ["user", "date"];

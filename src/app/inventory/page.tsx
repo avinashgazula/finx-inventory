@@ -1,4 +1,3 @@
-"use server";
 import {
   Card,
   CardContent,
@@ -11,6 +10,8 @@ import { layoutTester } from "@/lib/layout-tester";
 import AllVehiclesCard from "./(vehicles)/(card-view)/AllVehiclesCard";
 import AllVehiclesTable from "./(vehicles)/(table-view)/AllVehiclesTable";
 import AddVehicleButton from "./(vehicles)/AddVehicleButton";
+
+export const dynamic = "force-dynamic";
 
 export default async function Inventory(props: {
   searchParams: Promise<Record<string, string>>;

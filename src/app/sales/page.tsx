@@ -9,7 +9,7 @@ import { redirect } from "next/navigation";
 import { getCurrentUser } from "../(auth)/utils/auth";
 import SalesTable from "./SalesTable";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 const Sales = async () => {
   const user = await getCurrentUser();
